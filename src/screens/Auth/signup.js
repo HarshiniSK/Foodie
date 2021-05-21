@@ -6,6 +6,7 @@ import {
   SafeAreaView,
   Image,
   TextInput,
+  Dimensions,
   TouchableOpacity,
 } from 'react-native';
 import SignUpImage from '../../assets/images/signup.svg';
@@ -15,7 +16,7 @@ import {AuthContext} from '../../components/context';
 export default function SignUp({navigation, route}) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-
+  const {width, height} = Dimensions.get('window');
   const signUpHandler = (username, password) => {
     signUp(username, password);
   };
@@ -65,7 +66,7 @@ export default function SignUp({navigation, route}) {
         </View>
       </View>
       <View style={styles.Pic1}>
-        <SignUpImage />
+        <SignUpImage width={width - 100} height={height * 0.3} />
       </View>
     </SafeAreaView>
   );
@@ -127,8 +128,8 @@ const styles = StyleSheet.create({
     borderRadius: 7,
   },
   Pic1: {
-    paddingBottom: 30,
-    justifyContent: 'center',
+    paddingBottom: 5,
+    // justifyContent: 'center',
     alignItems: 'center',
   },
 });

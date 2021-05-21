@@ -7,6 +7,7 @@ import {
   Image,
   TextInput,
   TouchableOpacity,
+  Dimensions,
 } from 'react-native';
 import SignInImage from '../../assets/images/signin.svg';
 import Arrow from '../../assets/icons/arrow.svg';
@@ -16,6 +17,8 @@ export default function SignIn({navigation, route}) {
   const [userName, setUserName] = useState('');
   const [password, setPassword] = useState('');
   const {signIn} = useContext(AuthContext);
+
+  const {width, height} = Dimensions.get('window');
 
   const loginHandler = (userName, password) => {
     signIn(userName, password);
@@ -67,8 +70,11 @@ export default function SignIn({navigation, route}) {
         </View>
       </View>
       <View style={styles.Pic1}>
-        <SignInImage />
+        <SignInImage width={width - 100} height={height * 0.3} />
       </View>
+      {/* <View style={StyleSheet.absoluteFillObject}>
+        <SignInImage />
+      </View> */}
     </SafeAreaView>
   );
 }
@@ -79,14 +85,9 @@ const styles = StyleSheet.create({
     paddingHorizontal: 30,
   },
   arrow: {
-    // width: 100,
-    // height: 100,
-    // justifyContent: 'flex-start',
-    // alignItems: 'flex-start',
     paddingTop: '20%',
   },
   Heading: {
-    // backgroundColor:"red",
     fontSize: 30,
     textAlign: 'left',
     justifyContent: 'flex-start',
@@ -111,7 +112,6 @@ const styles = StyleSheet.create({
   input: {
     borderRadius: 7,
     height: 42,
-    // margin: 15,
     marginTop: 20,
     borderWidth: 0,
     padding: '1%',
@@ -129,15 +129,13 @@ const styles = StyleSheet.create({
     backgroundColor: '#34D1D1',
     alignItems: 'center',
     justifyContent: 'center',
-    // marginHorizontal: '20%',
     marginTop: 20,
     height: 42,
     width: 169,
     borderRadius: 7,
   },
   Pic1: {
-    paddingBottom: 30,
-    justifyContent: 'center',
+    paddingTop: 5,
     alignItems: 'center',
   },
 });

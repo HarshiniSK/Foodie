@@ -13,19 +13,25 @@ import RtArrow from '../../assets/icons/rght_arw.svg';
 import Pad from '../../assets/icons/BB.svg';
 import Bulb from '../../assets/icons/Sun.svg';
 import SignOut from '../../assets/icons/signout.svg';
+import Cuisines from '../../assets/icons/cuisine.svg';
+
 import {AuthContext, ProfileContext} from '../../components/context';
 
 export default function Profile({navigation, route}) {
   const {signOut} = useContext(AuthContext);
-  // const {profileData} = useContext(ProfileContext);
-  // const profileData = {public_name: 'ABCD'};
-  // const profileData = ProfileContext._currentValue;
-  // console.log('Profile Data:', ProfileContext._currentValue);
-  // console.log("Profile:",profileData);
   return (
     <ProfileContext.Consumer>
       {profile => {
         console.log(profile);
+        if (!profile) {
+          return <View />;
+        }
+        if (!profile.profile) {
+          return <View />;
+        }
+        if (!profile.profile.data) {
+          return <View />;
+        }
         const {public_name} = profile.profile.data;
         return (
           <SafeAreaView
@@ -56,7 +62,6 @@ export default function Profile({navigation, route}) {
             </View>
             <View style>
               <Text style={styles.head}>{public_name}</Text>
-              {/* <Text style={styles.txt1}>@lorem_ipsum</Text> */}
             </View>
             <View style={{paddingHorizontal: 30, paddingTop: 20}}>
               <View style={styles.row1}>
@@ -67,7 +72,21 @@ export default function Profile({navigation, route}) {
                   style={styles.btn1}
                   activeOpacity={0.5}
                   onPress={() =>
-                    navigation.navigate('EditProfile', {
+                    navigation.navigate('Password', {
+                      initial: public_name[0],
+                    })
+                  }>
+                  <RtArrow style={styles.arrow} />
+                </TouchableOpacity>
+              </View>
+              <View style={styles.row1}>
+                <Pad style={styles.pad} />
+                <Text style={styles.txt2}>Change Cuisines</Text>
+                <TouchableOpacity
+                  style={styles.btn1}
+                  activeOpacity={0.5}
+                  onPress={() =>
+                    navigation.navigate('Cuisine', {
                       initial: public_name[0],
                     })
                   }>
@@ -114,7 +133,6 @@ const styles = StyleSheet.create({
 
   head: {
     fontSize: 25,
-    // fontWeight: 'bold',
     fontFamily: 'Oxygen-Bold',
     marginTop: 15,
     textAlign: 'center',

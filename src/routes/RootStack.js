@@ -6,7 +6,7 @@ import Search from '../routes/SearchStack';
 import Home from '../routes/HomeStack';
 import Profile from '../routes/ProfileStack';
 
-import {View, Text, TouchableOpacity} from 'react-native';
+import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
 import HomeActive from '../assets/icons/home_active.svg';
 import UserActive from '../assets/icons/user_active.svg';
 import SearchActive from '../assets/icons/search_active.svg';
@@ -18,6 +18,15 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import {options, ProfileGet} from '../components/api';
 
 const Tab = createBottomTabNavigator();
+
+const styles = StyleSheet.create({
+  icons: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingBottom: 10,
+    width: 60,
+  },
+});
 
 const MyTabBar = ({state, descriptors, navigation}) => {
   const focusedOptions = descriptors[state.routes[state.index].key].options;
@@ -89,77 +98,29 @@ const MyTabBar = ({state, descriptors, navigation}) => {
               {label}
             </Text> */}
             {label === 'Home' ? (
-              isFocused ? (
-                <View
-                  style={{
-                    borderBottomColor: '#818181',
-                    borderBottomWidth: 4,
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    paddingBottom: 10,
-                    width: 60,
-                  }}>
+              <View style={styles.icons}>
+                {isFocused ? (
                   <HomeActive height={24} width={24} />
-                </View>
-              ) : (
-                <View
-                  style={{
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    paddingBottom: 10,
-                    width: 60,
-                  }}>
+                ) : (
                   <HomeInactive height={24} width={24} />
-                </View>
-              )
+                )}
+              </View>
             ) : label === 'Search' ? (
-              isFocused ? (
-                <View
-                  style={{
-                    borderBottomColor: '#818181',
-                    borderBottomWidth: 4,
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    paddingBottom: 10,
-                    width: 60,
-                  }}>
+              <View style={styles.icons}>
+                {isFocused ? (
                   <SearchActive height={24} width={24} />
-                </View>
-              ) : (
-                <View
-                  style={{
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    paddingBottom: 10,
-                    width: 60,
-                  }}>
+                ) : (
                   <SearchInactive height={24} width={24} />
-                </View>
-              )
+                )}
+              </View>
             ) : label === 'Profile' ? (
-              isFocused ? (
-                <View
-                  style={{
-                    borderBottomColor: '#818181',
-                    borderBottomWidth: 4,
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    paddingBottom: 10,
-                    width: 60,
-                  }}>
+              <View style={styles.icons}>
+                {isFocused ? (
                   <UserActive height={24} width={24} />
-                </View>
-              ) : (
-                <View
-                  style={{
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    paddingBottom: 10,
-                    width: 60,
-                  }}>
+                ) : (
                   <UserInactive height={24} width={24} />
-                </View>
-              )
+                )}
+              </View>
             ) : null}
           </TouchableOpacity>
         );
@@ -169,22 +130,14 @@ const MyTabBar = ({state, descriptors, navigation}) => {
 };
 
 const MyTabs = () => {
-  // const loginState = useContext(AuthContext);
   const [profileData, setProfileData] = useState(null);
   useEffect(async () => {
-    // console.log('Inside effect');
-
     AsyncStorage.getItem('userToken')
       .then(async res => {
-        // console.log(res);
         var response = await axios.post(ProfileGet, {token: res}, options);
-        // console.log(response.status);
-        // console.log(response.data);
         setProfileData({profile: response.data});
       })
       .catch(e => console.log('Profile Error', JSON.stringify(e, null, 2)));
-
-    // setProfileData(profileData);
   }, []);
 
   return (

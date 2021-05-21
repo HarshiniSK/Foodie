@@ -2,9 +2,10 @@ import React from 'react';
 import {Text, View, TouchableOpacity} from 'react-native';
 import {createStackNavigator} from '@react-navigation/stack';
 import Profile from '../screens/Profile/';
-import EditProfile from '../screens/Profile/EditProfile';
+import Password from '../screens/Profile/Password';
 import {getFocusedRouteNameFromRoute} from '@react-navigation/native';
 import MyReviews from '../screens/Profile/MyReviews';
+import Cuisine from '../screens/Profile/Cuisine';
 import SinglePost from '../screens/SinglePost/SinglePost';
 
 const Stack = createStackNavigator();
@@ -34,8 +35,15 @@ const AppStack = ({navigation, route}) => {
         })}
       />
       <Stack.Screen
-        name="EditProfile"
-        component={EditProfile}
+        name="Password"
+        component={Password}
+        options={({navigation, route}) => ({
+          header: () => <View />,
+        })}
+      />
+      <Stack.Screen
+        name="Cuisine"
+        component={Cuisine}
         options={({navigation, route}) => ({
           header: () => <View />,
         })}

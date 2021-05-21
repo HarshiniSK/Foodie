@@ -51,7 +51,7 @@ export default function EditProfile({navigation, route}) {
           onPress={() => navigation.goBack()}>
           <Arrow style={styles.arr} />
         </TouchableOpacity>
-        <Text style={styles.heading}>Change Password</Text>
+        <Text style={styles.heading}>Change Cuisines</Text>
       </View>
       <View
         style={{
@@ -70,14 +70,14 @@ export default function EditProfile({navigation, route}) {
       </View>
 
       <View style={styles.Boxcontainer}>
-        <TextInput
+        {/* <TextInput
           style={styles.input}
           secureTextEntry={true}
           placeholder="Change Password"
           placeholderTextColor="#717171"
           underlineColorAndroid="transparent"
           onChangeText={text => setPassword(text)}
-        />
+        /> */}
 
         <TouchableOpacity
           style={styles.btn2}
@@ -88,19 +88,6 @@ export default function EditProfile({navigation, route}) {
           <DnArrow style={styles.arrw} />
           <Text style={styles.txt3}>Change</Text>
         </TouchableOpacity>
-
-        <View
-          style={{
-            alignItems: 'center',
-            justifyContent: 'center',
-            marginTop: 10,
-            borderRadius: 7,
-          }}>
-          <Text
-            style={{color: '#000', fontFamily: 'Oxygen-Bold', fontSize: 15}}>
-            After changing password, you will be directed to the Sign In page
-          </Text>
-        </View>
       </View>
     </SafeAreaView>
   );
