@@ -124,7 +124,6 @@ const styles = StyleSheet.create({
     paddingLeft: 20,
     fontFamily: 'Oxygen-Bold',
     marginTop: 20,
-
     backgroundColor: '#DAF0F0',
   },
   btn2: {
@@ -135,7 +134,8 @@ const styles = StyleSheet.create({
     borderRadius: 7,
     justifyContent: 'center',
     flexDirection: 'row',
-    marginTop: 60,
+    marginTop: 30,
+    marginBottom: 20,
   },
   arrw: {},
   txt3: {

@@ -12,7 +12,6 @@ import {
   TouchableOpacity,
 } from 'react-native';
 const {width} = Dimensions.get('screen');
-// import DATA from './data';
 import axios from 'axios';
 
 import {
@@ -24,7 +23,6 @@ import {
 import {Feedget} from '../../components/api';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-// https://www.creative-flyers.com
 
 const OVERFLOW_HEIGHT = 70;
 const SPACING = 10;
@@ -60,7 +58,6 @@ const OverflowItems = ({data, scrollXAnimated}) => {
 
 export default function App({navigation, route}) {
   const [data, setData] = React.useState([]);
-  // const [data, setData] = React.useState();
 
   const scrollXIndex = React.useRef(new Animated.Value(0)).current;
   const scrollXAnimated = React.useRef(new Animated.Value(0)).current;
@@ -71,20 +68,14 @@ export default function App({navigation, route}) {
   });
 
   React.useEffect(async () => {
-    // if (index === data.length - VISIBLE_ITEMS - 1) {
-    //   // get new data
-    //   // fetch more data
-
-    // }
-    // setData([...data]);
 
     AsyncStorage.getItem('userToken').then(async res => {
       var data = await axios.post(Feedget, {token: res, pageNum: 0});
-      // console.log('Data:', data.data.data);
       const newData = data.data.data;
       setData(newData);
     });
   }, []);
+
 
   React.useEffect(() => {
     Animated.spring(scrollXAnimated, {
@@ -99,11 +90,7 @@ export default function App({navigation, route}) {
       direction={Directions.UP}
       onHandlerStateChange={ev => {
         if (ev.nativeEvent.state === State.END) {
-          // if (index === data.length - 1) {
-          //   return;
-          // }
-          // setActiveIndex(index + 1);
-          // console.log('Swiped Up!');
+         
           navigation.navigate('SinglePost', {
             username: data[index].public_name,
             createdAt: data[index].createdAt,
@@ -115,16 +102,6 @@ export default function App({navigation, route}) {
           });
         }
       }}>
-      {/* <TapGestureHandler
-      onHandlerStateChange={() => {
-        console.log('Swiped Up!');
-              navigation.navigate('SinglePost', {
-                username: "lorem_ipsum",
-                createdAt: "May 14, 2021",
-                location: data[index].location,
-                title: data[index].title,
-              });
-      }}> */}
       <FlingGestureHandler
         key="left"
         direction={Directions.LEFT}
@@ -148,7 +125,6 @@ export default function App({navigation, route}) {
             }
           }}>
           <SafeAreaView style={styles.container}>
-            {/* <StatusBar hidden /> */}
             <OverflowItems data={data} scrollXAnimated={scrollXAnimated} />
             <FlatList
               data={data}
@@ -178,7 +154,6 @@ export default function App({navigation, route}) {
                 );
               }}
               renderItem={({item, index: i}) => {
-                // console.log(item.Imageurl);
                 const inputRange = [i - 1, i, i + 1];
                 const translateX = scrollXAnimated.interpolate({
                   inputRange,
@@ -192,7 +167,6 @@ export default function App({navigation, route}) {
                   inputRange,
                   outputRange: [1 - 1 / VISIBLE_ITEMS, 1, 0],
                 });
-                // const exampleImage = require(item.imageUrl);
                 return (
                   <Animated.View
                     style={{
@@ -222,7 +196,6 @@ export default function App({navigation, route}) {
         </FlingGestureHandler>
       </FlingGestureHandler>
     </FlingGestureHandler>
-    // </TapGestureHandler>
   );
 }
 

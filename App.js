@@ -26,7 +26,7 @@ import {
   View,
   LogBox,
 } from 'react-native';
-
+import Loading from './src/screens/Landing/Loading';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 import AppStack from './src/routes/AppStack';
 import AuthStack from './src/routes/AuthStack';
@@ -40,12 +40,6 @@ const App = () => {
   const isDarkMode = useColorScheme() === 'dark';
   LogBox.ignoreLogs(['Warning: ...']);
   LogBox.ignoreAllLogs();
-  // const backgroundStyle = {
-  //   // backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  // };
-
-  // const [isLoading, setIsLoading] = useState(true);
-  // const [userToken, setUserToken] = useState(null);
 
   const initialLoginState = {
     isLoading: true,
@@ -192,8 +186,9 @@ const App = () => {
 
   if (loginState.isLoading) {
     return (
-      <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-        <ActivityIndicator size="large" />
+      <View>
+        <Loading />
+        {/* <Text>True</Text> */}
       </View>
     );
   }

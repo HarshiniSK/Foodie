@@ -1,8 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import axios from 'axios';
-import Search from '../routes/SearchStack';
-
+import Search from '../routes/SearchStack'
 import Home from '../routes/HomeStack';
 import Profile from '../routes/ProfileStack';
 
@@ -135,6 +134,10 @@ const MyTabs = () => {
     AsyncStorage.getItem('userToken')
       .then(async res => {
         var response = await axios.post(ProfileGet, {token: res}, options);
+        if (!response.data)
+          response = await axios.post(ProfileGet, {token: res}, options);
+        if (!response.data.data)
+          response = await axios.post(ProfileGet, {token: res}, options);
         setProfileData({profile: response.data});
       })
       .catch(e => console.log('Profile Error', JSON.stringify(e, null, 2)));

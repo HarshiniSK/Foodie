@@ -71,7 +71,7 @@ const AddPost = ({navigation, route}) => {
       <View style={{alignItems: 'center', paddingTop: 20}}>
         <Image
           source={{uri: route.params.fileUri}}
-          style={{width: 300, height: 300, borderRadius: 14, marginBottom: 10}}
+          style={{width: 220, height: 220, borderRadius: 14, marginBottom: 10}}
         />
       </View>
 
@@ -133,8 +133,11 @@ const AddPost = ({navigation, route}) => {
           backgroundColor: '#34D1D1',
           height: 36,
           width: 120,
-          marginTop: 20,
+          marginTop: 5,
           borderRadius: 7,
+          // position:'absolute',
+          // bottom: 5,
+          // left: 20,
           alignItems: 'center',
           justifyContent: 'center',
           flexDirection: 'row',

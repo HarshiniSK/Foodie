@@ -22,7 +22,7 @@ export default function Profile({navigation, route}) {
   return (
     <ProfileContext.Consumer>
       {profile => {
-        console.log(profile);
+        // console.log(profile);
         if (!profile) {
           return <View />;
         }
@@ -79,7 +79,7 @@ export default function Profile({navigation, route}) {
                   <RtArrow style={styles.arrow} />
                 </TouchableOpacity>
               </View>
-              <View style={styles.row1}>
+              {/* <View style={styles.row1}>
                 <Pad style={styles.pad} />
                 <Text style={styles.txt2}>Change Cuisines</Text>
                 <TouchableOpacity
@@ -92,7 +92,7 @@ export default function Profile({navigation, route}) {
                   }>
                   <RtArrow style={styles.arrow} />
                 </TouchableOpacity>
-              </View>
+              </View> */}
               <View style={styles.row1}>
                 <Pad style={styles.pad} />
                 <Text style={styles.txt2}>My Reviews</Text>

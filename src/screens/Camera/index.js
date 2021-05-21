@@ -176,14 +176,14 @@ export default class App extends Component {
         <View
           style={{
             backgroundColor: '#DAF0F0',
-            width: 319,
-            height: 319,
+            width: 300,
+            height: 300,
             borderRadius: 14,
             paddingLeft: 10,
             alignItems: 'center',
             justifyContent: 'center',
           }}>
-          <CamDummy width={319} height={319} />
+          <CamDummy width={300} height={300} />
         </View>
       );
     }
@@ -195,20 +195,42 @@ export default class App extends Component {
         <SafeAreaView>
           <View style={styles.body}>
             <View style={{flexDirection: 'row', alignItems: 'center'}}>
-              <TouchableOpacity
-                activeOpacity={0.5}
-                hitSlop={{top: 30, bottom: 30, left: 30, right: 30}}
-                onPress={() => this.state.navigation.goBack()}>
-                <Arrow />
-              </TouchableOpacity>
-              <Text
+              <View
                 style={{
-                  fontSize: 25,
-                  fontFamily: 'Oxygen-Bold',
-                  marginLeft: 20,
+                  flexDirection: 'row',
+                  flex: 2,
+                  alignItems: 'center',
+                  justifyContent: 'flex-start',
                 }}>
-                Add Post
-              </Text>
+                <TouchableOpacity
+                  activeOpacity={0.5}
+                  hitSlop={{top: 30, bottom: 30, left: 30, right: 30}}
+                  onPress={() => this.state.navigation.goBack()}>
+                  <Arrow />
+                </TouchableOpacity>
+                <Text
+                  style={{
+                    fontSize: 25,
+                    fontFamily: 'Oxygen-Bold',
+                    marginLeft: 20,
+                  }}>
+                  Add Post
+                </Text>
+              </View>
+              <View>
+                {this.state.fileUri != '' ? (
+                  <TouchableOpacity
+                    style={styles.btn1}
+                    activeOpacity={0.5}
+                    onPress={() =>
+                      this.state.navigation.navigate('AddPost', {
+                        fileUri: this.state.fileUri,
+                      })
+                    }>
+                    <RtArrow style={styles.arrow} />
+                  </TouchableOpacity>
+                ) : null}
+              </View>
             </View>
 
             <View style={styles.ImageSections}>
@@ -230,20 +252,7 @@ export default class App extends Component {
                 <Text style={styles.btnText}>Choose from Gallery</Text>
               </TouchableOpacity>
             </View>
-            {this.state.fileUri != '' ? (
-              <TouchableOpacity
-                style={styles.btn1}
-                activeOpacity={0.5}
-                onPress={() =>
-                  this.state.navigation.navigate('AddPost', {
-                    fileUri: this.state.fileUri,
-                  })
-                }>
-                <RtArrow style={styles.arrow} />
-              </TouchableOpacity>
-            ) : null}
           </View>
-          {/* <TouchableOpacity> </TouchableOpacity> */}
         </SafeAreaView>
       </Fragment>
     );
@@ -264,12 +273,7 @@ const styles = StyleSheet.create({
     alignSelf: 'flex-end',
   },
   body: {
-    // flex: 1,
     backgroundColor: '#FFF',
-    // alignItems: 'center',
-    // justifyContent: 'center',
-    // borderColor: 'black',
-    // borderWidth: 1,
     paddingTop: 70,
     paddingHorizontal: 38,
     height: Dimensions.get('screen').height - 20,
@@ -283,17 +287,16 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   images: {
-    width: 319,
-    height: 319,
+    width: 300,
+    height: 300,
     borderColor: 'black',
-    // borderWidth: 1,
     marginHorizontal: 3,
     borderRadius: 14,
   },
   btnParentSection: {
     alignItems: 'center',
     justifyContent: 'center',
-    marginTop: 10,
+    marginTop: 5,
   },
   btnSection: {
     width: 169,
@@ -310,6 +313,5 @@ const styles = StyleSheet.create({
     fontSize: 15,
     fontFamily: 'Oxygen-Bold',
     borderRadius: 7,
-    // fontWeight: 'bold',
   },
 });

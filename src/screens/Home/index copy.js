@@ -12,7 +12,7 @@ import {
   TouchableOpacity,
 } from 'react-native';
 const {width} = Dimensions.get('screen');
-import DATA from './data';
+// import DATA from './data';
 import axios from 'axios';
 
 import {
@@ -48,7 +48,7 @@ const OverflowItems = ({data, scrollXAnimated}) => {
                 {item.title}
               </Text>
               <View style={styles.itemContainerRow}>
-                <Text style={[styles.location]}>{item.location}</Text>
+                <Text style={[styles.location]}>{item.Location}</Text>
               </View>
             </View>
           );
@@ -59,8 +59,8 @@ const OverflowItems = ({data, scrollXAnimated}) => {
 };
 
 export default function App({navigation, route}) {
-  // const [data, setData] = React.useState([]);
-  const [data, setData] = React.useState(DATA);
+  const [data, setData] = React.useState([]);
+  // const [data, setData] = React.useState();
 
   const scrollXIndex = React.useRef(new Animated.Value(0)).current;
   const scrollXAnimated = React.useRef(new Animated.Value(0)).current;
@@ -71,20 +71,22 @@ export default function App({navigation, route}) {
   });
 
   React.useEffect(async () => {
-    // if (index === data.length - VISIBLE_ITEMS - 1) {
-    //   // get new data
-    //   // fetch more data
+    // setData([...data]);
 
-    // }
-    setData([...data]);
-
-    // AsyncStorage.getItem('userToken').then(async res => {
-    //   var data = await axios.post(Feedget, {token: res, pageNum: 0});
-    //   // console.log('Data:', data.data.data);
-    //   const newData = data.data.data;
-    //   setData(newData);
-    // });
+    AsyncStorage.getItem('userToken').then(async res => {
+      var data = await axios.post(Feedget, {token: res, pageNum: 0});
+      // console.log('Data:', data.data.data);
+      const newData = data.data.data;
+      setData(newData);
+    });
   }, []);
+
+  // React.useEffect(async () => {
+  //   if (index === data.length - VISIBLE_ITEMS - 1) {
+  //     // get new data
+  //     // fetch more data
+  //   }
+  // });
 
   React.useEffect(() => {
     Animated.spring(scrollXAnimated, {

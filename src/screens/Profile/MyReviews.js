@@ -24,7 +24,7 @@ export default function MyReviews({navigation, route}) {
       .then(async res => {
         var reviews = await axios.post(MyReviewsGet, {token: res}, options);
         reviews = await axios.post(MyReviewsGet, {token: res}, options);
-        console.log(reviews.data.data);
+        // console.log(reviews.data.data);
         setReviewData(reviews.data.data);
       })
       .catch(e => console.log(JSON.stringify(e, null, 2)));
