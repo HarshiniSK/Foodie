@@ -1,1 +1,71 @@
-Foodie
+<h1>Foodie - The Journal for everyone</h1>
+
+<h2>Abstract</h2>
+<ul>
+  
+  <li>
+  The user can take a photo of whatever they’re eating or drinking using their phone’s inbuilt camera.
+  </li>
+  <li>
+  The user can then add a description or a review of the food, and post it..
+  </li>
+  <li>
+  The user can browse through all the photos and descriptions they’ve added by swiping up or down.
+  </li>
+  <li>
+  The user can look at the reviews of other users also.
+  </li>
+  
+</ul>
+
+<h2>Problem Definition</h2>
+<p>When we started to discuss the
+ideas for the project, We were
+very concerned about two
+constraints.
+We need to prepare a feel-good
+application and we need to
+choose the main core commodity
+of the app, in such a way that it is
+very much relatable
+to everyone's life and it must also
+stimulate some good memories
+that the
+a client would enjoy the results.
+Without a second thought the first
+think that struck over my mind is
+food.
+So that's how it got matrially
+developed
+so we ended up finally with social
+media for food and not anything
+more than that. so anyone who
+loves food will like our app .
+</p>
+
+<h2>Features of the App</h2>
+
+<ol>
+  
+  <li> <h3>SIGN IN / SIGN UP</h3>
+  The User must Sign In or Sign up at the launch of the
+application to begin using it.
+
+  </li>
+  <li> <h3>PROFILE</h3>
+  The User can edit thier personal information and can view
+all their posts in the Profile page
+
+  </li>
+  <li> <h3>HOMESCREEN</h3>
+ The Homescreen shows the user new posts and
+recomendations according to their interests.
+
+  </li>
+  <li> <h3>SEARCH</h3>
+  The user can search for posts on the basis of their cuisine
+of interests
+  </li>
+  
+</ol>
+
