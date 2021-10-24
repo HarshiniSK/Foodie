@@ -69,3 +69,44 @@ of interests
   
 </ol>
 
+
+<h2>Tools and Technologies</h2>
+<ul>
+  
+  <li>
+  React Native
+  </li>
+  <li>
+  Node JS
+  </li>
+  <li>
+  Mongo DB
+
+  </li>
+  <li>
+  Postman
+  </li>
+  
+  <li>
+  Android Studio
+  </li>
+  <li>
+  Visual Studio Code
+
+  </li>
+  
+</ul>
+
+<h2>Outputs - Screenshots</h2>
+<img src="https://i.ibb.co/LpsJGVN/Picture1.jpg">
+<img src="">
+<img src="">
+<img src="">
+<img src="">
+<img src="">
+<img src="">
+<img src="">
+<img src="">
+<img src="">
+<img src="">
+<img src="">
