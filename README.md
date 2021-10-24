@@ -98,15 +98,30 @@ of interests
 </ul>
 
 <h2>Outputs - Screenshots</h2>
-<img src="https://i.ibb.co/LpsJGVN/Picture1.jpg">
-<img src="">
-<img src="">
-<img src="">
-<img src="">
-<img src="">
-<img src="">
-<img src="">
-<img src="">
-<img src="">
-<img src="">
-<img src="">
+<img src="https://github.com/HarshiniSK/Foodie/blob/master/screenshots/Picture1.jpg">
+<img src="https://github.com/HarshiniSK/Foodie/blob/master/screenshots/Picture2.jpg">
+<img src="https://github.com/HarshiniSK/Foodie/blob/master/screenshots/Picture3.jpg">
+<img src="https://github.com/HarshiniSK/Foodie/blob/master/screenshots/Picture4.png">
+<img src="https://github.com/HarshiniSK/Foodie/blob/master/screenshots/Picture5.png">
+<img src="https://github.com/HarshiniSK/Foodie/blob/master/screenshots/Picture6.png">
+<img src="https://github.com/HarshiniSK/Foodie/blob/master/screenshots/Picture7.png">
+<img src="https://github.com/HarshiniSK/Foodie/blob/master/screenshots/Picture8.png">
+<img src="https://github.com/HarshiniSK/Foodie/blob/master/screenshots/Picture9.png">
+<img src="https://github.com/HarshiniSK/Foodie/blob/master/screenshots/Picture10.png">
+<img src="https://github.com/HarshiniSK/Foodie/blob/master/screenshots/Picture11.png">
+<img src="https://github.com/HarshiniSK/Foodie/blob/master/screenshots/Picture12.png">
+
+
+<h2>Conclusion</h2>
+<p>This application is a platform for
+foodies to stay connected and share
+with like minded people. Nowadays
+we are able to get a lot of food review
+from You Tube and Instagram, our
+app is excusive for foodies and food
+enthusiasts.
+</p>
+
+
+
+
